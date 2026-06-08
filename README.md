@@ -1,5 +1,7 @@
 # Barbell Kinematics Analyzer
 
+<img width="240" height="320" alt="IMG_5773" src="https://github.com/user-attachments/assets/f30c434c-4027-4df6-a128-c81bfcd3fba5" />
+
 Description: A system to track barbell velocity through an IMU and approximate proximity to failure.
 
 # Project planning
@@ -26,7 +28,7 @@ Description: A system to track barbell velocity through an IMU and approximate p
 
 Because the BLE takes 3.3V and the arduino sends 5V, a logic level converter had to be integrated, which controlled the voltage to save the BLE.
 
-# Wiring
+## Wiring
 
 
 MPU6050:
@@ -105,11 +107,16 @@ Note on wiring- During the physical fabrication stage, the GND and VCC pins were
 * **The Fix:** Traced the issue to an incorrect TX/RX wiring configuration between the Arduino Nano and HM-10 BLE module. After rewiring the connections, the communication was restored.
 * **The Result:** The BLE module was able to reliably transmit sensor data from the Arduino to the laptop.
 
-### 2.. Wireless Data Logging
+### 2. Wireless Data Logging
 
 * **The Problem:** The project required a way to collect sensor data wirelessly and store it in a format suitable for later analysis.
 * **The Fix:** Modified a Python logging script to receive BLE packets and save them directly into CSV files (https://github.com/tarik-ibrahimovic/hweeai_IDK/blob/835bf81b631bc8ac133e5d8dc36f2bbcbaa82166/bt_csv.py#L24). A simple handshake protocol was implemented, requiring commands from the laptop before calibration and data collection could begin. Timestamps were transmitted alongside velocity measurements.
 * **The Result:** Timestamped sensor data could be streamed wirelessly and be written into csv files.
+
+  *<img width="1915" height="880" alt="CSV writing terminal, connection" src="https://github.com/user-attachments/assets/74004c75-df0c-42fb-91c6-cd3b62ead478" />
+
+  **CSV writing script in action**
+
 
 ### 3. Packet Structure & Reliability
 
@@ -117,13 +124,21 @@ Note on wiring- During the physical fabrication stage, the GND and VCC pins were
 * **The Fix:** Instead of implementing a start-byte synchronization system, a software buffer was added on the Python side to wait until a complete packet had been received before processing it. Existing BLE logging software was adapted by modifying the Arduino packet format to match the expected structure.
 * **The Result:** Reliable packet reception was achieved without requiring additional packet framing logic.
 
+<img width="1895" height="757" alt="Collected CSV file when Still" src="https://github.com/user-attachments/assets/2ad18296-2f2a-487c-90c3-a79ffb01daa4" />
+
+**CSV file when IMU is still**
+
+
 ### 4. Data Processing Automation
 
 * **The Problem:** To maintain compatibility with the logging software, several unused placeholder values were included in transmitted packets, resulting in unnecessary columns in exported CSV files.
 * **The Fix:** Wrote a secondary Python utility to automatically remove unused columns and generate cleaner datasets.
 * **The Result:** Data could be exported into a simplified format better suited for analysis and future machine learning applications.
 
+<img width="1890" height="765" alt="CSV file organizing" src="https://github.com/user-attachments/assets/fec078ee-2729-4e8b-b9fb-d520b02de04e" />
+<img width="1895" height="757" alt="Collected CSV file when Still" src="https://github.com/user-attachments/assets/6dab7f2e-6f1f-45f2-bf1c-309cb8e81882" />
 
+**CSV file refinement**
 
 ## CAD Modeling the Battery Case and Electronics box (Opted to use commercial barbell clips and attach the separate components)
 
