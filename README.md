@@ -15,9 +15,13 @@ Description: A system to track barbell velocity through an IMU and approximate p
 **Components and usages:**
 
 **Arduino Nano:** microcontroller
+
 **MPU6050:** accelerometer and gyroscope
+
 **HM-10 BLE Module:** wireless capacities
+
 **Logic level convertor:** makes BLE work with Nano
+
 **Power supply:** Ekrist 25800mAh Battery Portable Charger 
 
 Because the BLE takes 3.3V and the arduino sends 5V, a logic level converter had to be integrated, which controlled the voltage to save the BLE.
