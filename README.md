@@ -73,6 +73,7 @@ Note on wiring- During the physical fabrication stage, the GND and VCC pins were
 
 ### 1. Getting Started Up
 **Problem** Whenever I started up a prototype of just the IMU and Nano, the IMU would glitch because the Nano and IMU started up at different times.
+
 **Fail** The first MPU6050 was fried while soldering pins on. The ruined board was used to practice soldering.
 
 <img width="240" height="320" alt="Soldering_station" src="https://github.com/user-attachments/assets/25483bbf-140e-40c5-8272-5ec7e9663289" />
