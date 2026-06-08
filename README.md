@@ -3,21 +3,22 @@
 Description: A system to track barbell velocity through an IMU and approximate proximity to failure.
 
 # Project planning
-1. Hardware Selection & Interfacing:** Select, solder, and wire the components
-2. Raw Sensor Evaluation:** Get raw IMU readings running
-3. Live Telemetry Streaming:** Log wireless data packages through the BLE into csv files
-4. Rep Detection & Metric Tracking:** Breaking the reps into concentric and eccentric to count reps, get useful metrics like average velocity
-5. Physical Mounting:** Model and 3D print a way to mount the system onto the barbel
-6. Estimate proximity to failure:** Predict failure points using a simple ML model
+**1. Hardware Selection & Interfacing:** Select, solder, and wire the components
+**2. Raw Sensor Evaluation:** Get raw IMU readings running
+**3. Live Telemetry Streaming:** Log wireless data packages through the BLE into csv files
+**4. Rep Detection & Metric Tracking:** Breaking the reps into concentric and eccentric to count reps, get useful metrics like average velocity
+**5. Physical Mounting:** Model and 3D print a way to mount the system onto the barbel
+**6. Estimate proximity to failure:** Predict failure points using a simple ML model
 
 ## Hardware Architecture & Physical Wiring
 
-Components and usages:
-Arduino Nano - microcontroller
-MPU6050 - accelerometer and gyroscope
-HM-10 BLE Module - wireless capacities
-Logic level convertor - makes BLE work with Nano
-Power supply - Ekrist 25800mAh Battery Portable Charger 
+**Components and usages:**
+
+**Arduino Nano:** microcontroller
+**MPU6050:** accelerometer and gyroscope
+**HM-10 BLE Module:** wireless capacities
+**Logic level convertor:** makes BLE work with Nano
+**Power supply:** Ekrist 25800mAh Battery Portable Charger 
 
 Because the BLE takes 3.3V and the arduino sends 5V, a logic level converter had to be integrated, which controlled the voltage to save the BLE.
 
@@ -122,7 +123,7 @@ Note on wiring- During the physical fabrication stage, the GND and VCC pins were
 
 ## CAD Modeling the Battery Case and Electronics box (Opted to use commercial barbell clips and attach the separate components)
 
-Designed a model to keep the  Ekrist 25800mAh battery pack ($3"L \times 4.7"W \times 1"Th) in place and safe during lifts through Fusion360.
+Designed a model to keep the  Ekrist 25800mAh battery pack (3"L x 4.7"W x 1"Th) in place and safe during lifts through Fusion360.
 
 The design changed across three revisions to abide by physical constraints:
 1. **Revision 1 (A box):** A basic rectangular shell with 0.1 inches of clearance in all directions, opening for charging and powering, tailored to the dimensions of the battery, and space given to make sure battery doesn't overheat.
