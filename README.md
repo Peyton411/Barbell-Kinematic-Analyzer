@@ -61,13 +61,30 @@ LV2 - HM-10 TX
 
 Note on wiring- During the physical fabrication stage, the GND and VCC pins were scarce, so I made Y-splices to distribute power to the MPU6050, HM-10 BLE, and Logic Level Converter.
 
+<img width="240" height="320" alt="Y-Splice" src="https://github.com/user-attachments/assets/c2b4d005-3a68-4ac4-9eb0-03b11df9f0df" />
+
+**Y-splice creation**
+
+<img width="240" height="320" alt="Full_hardware_prototype" src="https://github.com/user-attachments/assets/b612453e-1e4b-4d98-a598-0a333d9b7007" />
+
+**Full hardware protype**
 
 ## Software and Engineering Development Logs
 
 ### 1. Getting Started Up
 **Problem** Whenever I started up a prototype of just the IMU and Nano, the IMU would glitch because the Nano and IMU started up at different times.
 **Fail** The first MPU6050 was fried while soldering pins on. The ruined board was used to practice soldering.
+
+<img width="240" height="320" alt="Soldering_station" src="https://github.com/user-attachments/assets/25483bbf-140e-40c5-8272-5ec7e9663289" />
+
+**Soldering IMU pins**
+
 **Fix** Wrote code to check if there was a connection to the IMU at address `0x68`. To prevent it from getting stuck booting up, code turning the SCL clock up and down 9 times was implement to wake the IMU back up.
+
+<img width="350" height="399" alt="Screenshot 2026-06-08 105332" src="https://github.com/user-attachments/assets/9216d033-48c5-4582-801f-74827f2e2f04" />
+
+**Raw IMU data collection**
+
 
 ### 2. Sensor Fusion
 * **The Problem:** Sensor noise and tilting the IMU caused infinite velocity drift because the orientation was not taken into account.
@@ -107,9 +124,19 @@ Note on wiring- During the physical fabrication stage, the GND and VCC pins were
 Designed a model to keep the  Ekrist 25800mAh battery pack ($3"L \times 4.7"W \times 1"Th) in place and safe during lifts through Fusion360.
 
 The design changed across three revisions to abide by physical constraints:
-1. **Revision 1 (A box):** A basic rectangular shell with 0.1 inches of clearance in all directions, tailored to the dimensions of the battery.
+1. **Revision 1 (A box):** A basic rectangular shell with 0.1 inches of clearance in all directions, opening for charging and powering, tailored to the dimensions of the battery, and space given to make sure battery doesn't overheat.
+
+<img width="665" height="399" alt="Battery_case_Revision_1" src="https://github.com/user-attachments/assets/1850506c-dfdc-4b06-9470-d0b4f48dd4d4" />
+   
 2. **Revision 2 (Heat and Strength management):** Thickened the base to 0.25 inches to handle barbell drops. Added fillets to help absorb impact and left at least 30% of the battery surface area exposed to prevent thermal overheating, as recommended. And added access to the power button and USB ports.
+
+<img width="878" height="495" alt="Battery_case_revision_2" src="https://github.com/user-attachments/assets/bdda6235-a382-454f-9f19-f84f9059393a" />
+
+   
 3. **Revision 3 (Slicing):** To avoid steep overhang failures and messy prints, the casing was modified with a U shaped cut instead of a gaping hole, allowing it to print easier.
+
+<img width="997" height="564" alt="Battery_case_final" src="https://github.com/user-attachments/assets/30c52a90-7745-406a-82f9-777c40f9d4a7" />
+
 
 
 
