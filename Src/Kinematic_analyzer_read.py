@@ -113,7 +113,7 @@ async def ble_loop():
         finally:
             await client.stop_notify(CHAR_UUID)
             csv_file.close()
-            print("💾 Disconnected and file saved.")
+            print("Disconnected and file saved.")
 
 # Real-time plot
 def plot_realtime():
