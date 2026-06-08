@@ -136,7 +136,7 @@ Note on wiring- During the physical fabrication stage, the GND and VCC pins were
 * **The Result:** Data could be exported into a simplified format better suited for analysis and future machine learning applications.
 
 <img width="1890" height="765" alt="CSV file organizing" src="https://github.com/user-attachments/assets/fec078ee-2729-4e8b-b9fb-d520b02de04e" />
-<img width="1895" height="757" alt="Collected CSV file when Still" src="https://github.com/user-attachments/assets/6dab7f2e-6f1f-45f2-bf1c-309cb8e81882" />
+<img width="1916" height="846" alt="Refined CSV file" src="https://github.com/user-attachments/assets/6aeb8c03-8466-4fc5-87e2-a6e10cd5d2f3" />
 
 **CSV file refinement**
 
